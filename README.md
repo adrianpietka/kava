@@ -6,25 +6,27 @@ Task runner in PHP.
 
 Do you like it? Please add a star, fork it or create pull requests!
 
+## Install Kava
+
+```
+$: git clone git@github.com:adrianpietka/kava.git kava-src
+$: cd kava-src
+$: php src/index.php build
+```
+
+If you have older version of Kava, you can build it using Kava task:
+
+```
+$: kava build
+```
+
 ## Getting started
-
-```
-$: git clone git@github.com:adrianpietka/kava.git
-```
-
-Create alias. For MINGW3: create *kava* file in *C:/Windows/System32*, with content:
-
-```
-"/c/php/php.exe" "/c/projects/kava/src/Kava.php" $*
-```
-
-Now you can use it:
 
 ```
 $: cd /c/projects/myproject
 $: touch kava.php
-$: kava [taskName]
 
+$: kava [taskName]
 $: kava hello
 ```
 
@@ -48,20 +50,4 @@ $: kava
 Hello World form Kava!
 Default task (super)
 C:\Projects\myproject
-```
-
-## How to build Kava.phar
-
-```
-$: git clone git@github.com:adrianpietka/kava.git kava-src
-$: cd kava-src
-$: kava build
-```
-
-or
-
-```
-$: git clone git@github.com:adrianpietka/kava.git kava-src
-$: cd kava-src
-$: php src/index.php build
 ```
