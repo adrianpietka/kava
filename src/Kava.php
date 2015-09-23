@@ -4,12 +4,12 @@ namespace Kava;
 
 class Task { 
     private $name;
-    private $dependencies;
+    private $dependOn;
     private $content;
     
-    public function __construct($name, array $dependencies, \Closure $content) {
+    public function __construct($name, array $dependOn, \Closure $content) {
         $this->name = $name;
-        $this->dependencies = $dependencies;
+        $this->dependOn = $dependOn;
         $this->content = $content;
     }
     
@@ -17,8 +17,8 @@ class Task {
         return $this->name;
     }
     
-    public function dependencies() {
-        return $this->dependencies;
+    public function dependOn() {
+        return $this->dependOn;
     }
     
     public function execute() {
@@ -65,6 +65,16 @@ class Runner {
     public function execute() {
         $taskToExecute = $this->taskToExecute ? $this->taskToExecute : $this->defaultTask;
         $task = $this->tasks->get($taskToExecute);
+        
+        $this->_execute_task($task);
+    }
+    
+    protected function _execute_task($task) {
+        $dependencies = $task->dependOn();
+        
+        foreach ($dependencies as $depend) {
+            $this->_execute_task($this->tasks->get($depend));
+        }
         
         $task->execute();
     }
