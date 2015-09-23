@@ -84,31 +84,10 @@ class Runner {
 
 class Commands {
     public function getFullPath() {
-        return getcwd();
+        return getcwd().DIRECTORY_SEPARATOR;
     }
 }
 
 class Exception extends \Exception {
     
-}
-
-$currentDir = getcwd();
-$taskToExecute = isset($argv[1]) ? $argv[1] : null;
-
-$tasks = new Tasks;
-$commands = new Commands;
-$runner = new Runner($tasks, $taskToExecute);
-
-include_once __DIR__.DIRECTORY_SEPARATOR.'Helpers.php';
-
-try {
-    if (!file_exists($currentDir.DIRECTORY_SEPARATOR.'kava.php')) {
-        throw new Exception(sprintf("Configuration file of Kava (kava.php) does not exist in current path: \n> %s", $currentDir));
-    }
-    
-    include_once $currentDir.DIRECTORY_SEPARATOR.'kava.php';
-
-    $runner->execute();   
-} catch(Exception $e) {
-    echo $e->getMessage();
 }

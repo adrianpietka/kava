@@ -47,3 +47,19 @@ Hello World form Kava!
 Default task (super)
 C:\Projects\myproject
 ```
+
+## How to build Kava.phar
+
+```
+$: git clone git@github.com:adrianpietka/kava.git kava-src
+$: cd kava-src
+$: kava build
+```
+
+or
+
+```
+$: git clone git@github.com:adrianpietka/kava.git kava-src
+$: cd kava-src
+$: php src/index.php build
+```
