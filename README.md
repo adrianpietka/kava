@@ -2,7 +2,9 @@
 
 Task runner in PHP.
 
-**Proof of Concept**. Code was wrote in 90 minutes.
+**Proof of Concept**. PoC code was wrote in 90 minutes.
+
+Do you like it? Please add a star, fork it or create pull requests!
 
 ## Getting started
 

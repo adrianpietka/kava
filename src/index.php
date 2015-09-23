@@ -1,6 +1,10 @@
 <?php
 
-include_once 'Kava/Kava.php';
+include_once 'Kava/Commands.php';
+include_once 'Kava/Exception.php';
+include_once 'Kava/Runner.php';
+include_once 'Kava/Tasks.php';
+include_once 'Kava/Task.php';
 include_once 'Kava/Aliases.php';
 
 $currentDir = getcwd();
