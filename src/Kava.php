@@ -6,11 +6,13 @@ class Task {
     private $name;
     private $dependOn;
     private $content;
+    private $commands;
     
-    public function __construct($name, array $dependOn, \Closure $content) {
+    public function __construct(Commands $commands, $name, \Closure $content, array $dependOn = []) {
+        $this->commands = $commands;
         $this->name = $name;
-        $this->dependOn = $dependOn;
         $this->content = $content;
+        $this->dependOn = $dependOn;
     }
     
     public function name() {
@@ -22,7 +24,7 @@ class Task {
     }
     
     public function execute() {
-        call_user_func_array($this->content, []);
+        call_user_func_array($this->content, [$this->commands]);
     }
 }
 
@@ -80,6 +82,12 @@ class Runner {
     }
 }
 
+class Commands {
+    public function getFullPath() {
+        return getcwd();
+    }
+}
+
 class Exception extends \Exception {
     
 }
@@ -88,7 +96,8 @@ $currentDir = getcwd();
 $taskToExecute = isset($argv[1]) ? $argv[1] : null;
 
 $tasks = new Tasks;
-$kava = new Runner($tasks, $taskToExecute);
+$commands = new Commands;
+$runner = new Runner($tasks, $taskToExecute);
 
 include_once __DIR__.DIRECTORY_SEPARATOR.'Helpers.php';
 
@@ -99,7 +108,7 @@ try {
     
     include_once $currentDir.DIRECTORY_SEPARATOR.'kava.php';
 
-    $kava->execute();   
+    $runner->execute();   
 } catch(Exception $e) {
     echo $e->getMessage();
 }
