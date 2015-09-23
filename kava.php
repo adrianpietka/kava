@@ -12,9 +12,7 @@ task('build', function(Kava\Commands $commands) {
         }
     }
 
-    $phar = new Phar($buildsPath.$packageName,
-        FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::KEY_AS_FILENAME,
-        $packageName);
+    $phar = new Phar($buildsPath.$packageName);
 
     $phar->startBuffering();
     $phar->buildFromDirectory($srcPath, '/.php$/');
@@ -23,6 +21,11 @@ task('build', function(Kava\Commands $commands) {
     
     echo '> Finished build.'.PHP_EOL;
     echo '> Phar file in: '.$buildsPath.$packageName;
+});
+
+task('tests', function(Kava\Commands $commands) {
+    echo $commands->exec('phpunit --version');
+    
 });
 
 task('default', ['build']);

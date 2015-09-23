@@ -1,10 +1,12 @@
 # KAVA
 
-Task runner in PHP.
+Task runner for PHP.
 
 **Proof of Concept**. PoC code was wrote in 90 minutes.
 
 Do you like it? Please add a star, fork it or create pull requests!
+
+Current version: 0.1
 
 ## Install Kava
 
@@ -14,7 +16,7 @@ $: cd kava-src
 $: php src/index.php build
 ```
 
-If you have older version of Kava, you can build it using Kava task:
+If you have older version of Kava then can build it using Kava task:
 
 ```
 $: kava build
@@ -51,3 +53,10 @@ Hello World form Kava!
 Default task (super)
 C:\Projects\myproject
 ```
+
+## Author
+
+Adrian Pietka
+
+- [http://adrian.pietka.me](http://adrian.pietka.me)
+- [adrian@pietka.me](mailto:adrian@pietka.me)
