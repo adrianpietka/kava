@@ -35,13 +35,15 @@ $: kava hello
 ## Example content of *kava.php*
 
 ```php
+$commands = new Kava\Commands();
+
 task('hello', function() {
     echo 'Hello World form Kava!'.PHP_EOL;
 });
 
-task('super', ['hello'], function(Kava\Commands $commands) {
+task('super', ['hello'], function() use ($commands) {
     echo 'Default task (super)'.PHP_EOL;
-    echo $commands->getFullPath().PHP_EOL;
+    echo $commands->fullPath().PHP_EOL;
 });
 
 defaultTask('super');
