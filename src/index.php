@@ -1,5 +1,14 @@
 <?php
 
+// @todo Add autoload
+include_once 'Kava/Contracts/Command.php';
+
+include_once 'Kava/Command/Filesystem/FullPath.php';
+include_once 'Kava/Command/Filesystem/Manifest.php';
+
+include_once 'Kava/Command/Os/Exec.php';
+include_once 'Kava/Command/Os/Manifest.php';
+
 include_once 'Kava/Commands.php';
 include_once 'Kava/Exception.php';
 include_once 'Kava/Runner.php';

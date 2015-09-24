@@ -1,9 +1,10 @@
 <?php
 
-task('build', function(Kava\Commands $commands) {
-    $dirSeparator = DIRECTORY_SEPARATOR;
-    $srcPath = $commands->getFullPath().'src'.$dirSeparator;
-    $buildsPath = $commands->getFullPath().'builds'.$dirSeparator;
+$commands = new Kava\Commands();
+
+task('build', function() use ($commands) {
+    $srcPath = $commands->fullPath('src');
+    $buildsPath = $commands->fullPath('builds');
     $packageName = 'kava.phar';
 
     if (file_exists($buildsPath.$packageName)) {
@@ -23,9 +24,8 @@ task('build', function(Kava\Commands $commands) {
     echo '> Phar file in: '.$buildsPath.$packageName;
 });
 
-task('tests', function(Kava\Commands $commands) {
+task('tests', function() use ($commands) {
     echo $commands->exec('phpunit --version');
-    
 });
 
 task('default', ['build']);
