@@ -2,7 +2,7 @@
 
 namespace Kava\Command\Filesystem;
 
-use Kava\Contracts\Command as CommandContract;
+use Kava\Contract\Command as CommandContract;
 
 class FullPath implements CommandContract {
     private $addToPath;

@@ -1,7 +1,7 @@
 <?php
 
 // @todo Add autoload
-include_once 'Kava/Contracts/Command.php';
+include_once 'Kava/Contract/Command.php';
 
 include_once 'Kava/Command/Filesystem/FullPath.php';
 include_once 'Kava/Command/Filesystem/DeleteFile.php';

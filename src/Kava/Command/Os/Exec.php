@@ -2,7 +2,7 @@
 
 namespace Kava\Command\Os;
 
-use Kava\Contracts\Command as CommandContract;
+use Kava\Contract\Command as CommandContract;
 
 class Exec implements CommandContract {
     private $command;

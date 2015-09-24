@@ -3,7 +3,7 @@
 namespace Kava\Command\Filesystem;
 
 use Kava\Exception;
-use Kava\Contracts\Command as CommandContract;
+use Kava\Contract\Command as CommandContract;
 
 class DeleteFile implements CommandContract {
     private $pathToFile;
