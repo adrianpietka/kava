@@ -6,10 +6,8 @@ class Task {
     private $name;
     private $dependOn;
     private $content;
-    private $commands;
     
-    public function __construct(Commands $commands, $name, \Closure $content, array $dependOn = []) {
-        $this->commands = $commands;
+    public function __construct($name, \Closure $content, array $dependOn = []) {
         $this->name = $name;
         $this->content = $content;
         $this->dependOn = $dependOn;
@@ -24,6 +22,6 @@ class Task {
     }
     
     public function execute() {
-        call_user_func_array($this->content, [$this->commands]);
+        call_user_func_array($this->content, []);
     }
 }
