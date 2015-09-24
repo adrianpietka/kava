@@ -4,6 +4,7 @@
 include_once 'Kava/Contracts/Command.php';
 
 include_once 'Kava/Command/Filesystem/FullPath.php';
+include_once 'Kava/Command/Filesystem/DeleteFile.php';
 include_once 'Kava/Command/Filesystem/Manifest.php';
 
 include_once 'Kava/Command/Os/Exec.php';
