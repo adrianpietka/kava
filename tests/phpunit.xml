@@ -1,0 +1,15 @@
+<phpunit bootstrap="bootstrap.php">
+    <testsuites>
+        <testsuite name="Kava Common">
+            <directory>./common</directory>
+        </testsuite>
+        <testsuite name="Kava Commands">
+            <directory>./commands</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory>../src/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
