@@ -8,6 +8,10 @@ class Task {
     private $content;
     
     public function __construct($name, \Closure $content, array $dependOn = []) {
+        if (!is_string($name) || trim($name)) {
+            throw new Exception('Task name must be a string and can\'t be empty.');
+        }
+
         $this->name = $name;
         $this->content = $content;
         $this->dependOn = $dependOn;
