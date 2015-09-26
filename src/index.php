@@ -30,8 +30,11 @@ try {
             $currentDir));
     }
 
-    include_once $currentDir . DIRECTORY_SEPARATOR . 'kava.php';
+    $hermeticEnv = function($currentDir) {
+        include_once $currentDir . DIRECTORY_SEPARATOR . 'kava.php';
+    };
 
+    $hermeticEnv($currentDir);
     $runner->execute();
 } catch(Kava\Exception $e) {
     echo $e->getMessage();
