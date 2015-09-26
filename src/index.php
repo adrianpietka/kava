@@ -25,13 +25,16 @@ $commands = new Kava\Commands;
 $runner = new Kava\Runner($tasks, $taskToExecute);
 
 try {
-    if (!file_exists($currentDir.DIRECTORY_SEPARATOR.'kava.php')) {
-        throw new Kava\Exception(sprintf("Configuration file of Kava (kava.php) does not exist in current path: \n> %s", $currentDir));
+    if (!file_exists($currentDir . DIRECTORY_SEPARATOR . 'kava.php')) {
+        throw new Kava\Exception(sprintf("Configuration file of Kava (kava.php) does not exist in current path: \n> %s",
+            $currentDir));
     }
-    
-    include_once $currentDir.DIRECTORY_SEPARATOR.'kava.php';
 
-    $runner->execute();   
+    include_once $currentDir . DIRECTORY_SEPARATOR . 'kava.php';
+
+    $runner->execute();
 } catch(Kava\Exception $e) {
     echo $e->getMessage();
+} catch(\InvalidArgumentException $e) {
+    echo 'Invalid argument: '.$e->getMessage();
 }
