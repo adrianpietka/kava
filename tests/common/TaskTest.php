@@ -14,8 +14,24 @@ class TaskTest extends PHPUnit_Framework_TestCase {
         $this->task = new Kava\Task($this->name, $this->callback, $this->dependOn);
     }
 
-    public function testSetupTaskName() {
+    public function invalidTaskNameProvider() {
+        return [
+            [''],
+            [[]],
+            [0]
+        ];
+    }
+
+    public function testSetupValidTaskName() {
         $this->assertEquals($this->name, $this->task->name());
+    }
+
+    /**
+     * @dataProvider invalidTaskNameProvider
+     */
+    public function testSetupInvalidTaskName($invalidTaskName) {
+        $this->setExpectedException('InvalidArgumentException');
+        new Kava\Task($invalidTaskName, $this->callback, $this->dependOn);
     }
 
     public function testSetupCallback() {

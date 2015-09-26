@@ -6,11 +6,15 @@ class Task {
     private $name;
     private $dependOn;
     private $content;
-    
-    public function __construct($name, \Closure $content, array $dependOn = []) {
+
+    private function guard($name) {
         if (!is_string($name) || !trim($name)) {
-            throw new Exception('Task name must be a string and can\'t be empty.');
+            throw new \InvalidArgumentException('Task name must be a string and can\'t be empty.');
         }
+    }
+
+    public function __construct($name, \Closure $content, array $dependOn = []) {
+        $this->guard($name);
 
         $this->name = $name;
         $this->content = $content;
