@@ -21,7 +21,7 @@ task('build', function() use ($commands) {
 });
 
 task('tests', function() use ($commands) {
-    echo $commands->exec('phpunit --version');
+    echo $commands->exec('phpunit --configuration=tests/phpunit.xml --testdox');
 });
 
 task('default', ['build']);
