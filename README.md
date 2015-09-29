@@ -1,5 +1,7 @@
 # KAVA
 
+[![Build Status](https://travis-ci.org/adrianpietka/kava.svg?branch=master)](https://travis-ci.org/adrianpietka/kava)
+
 Task runner for PHP.
 
 **Proof of Concept**. PoC code was wrote in 90 minutes.
