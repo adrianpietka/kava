@@ -2,10 +2,12 @@
 
 namespace Kava;
 
-class Tasks {
+class Tasks
+{
     private $tasks = [];
     
-    public function add(Task $task) {
+    public function add(Task $task)
+    {
         if (!$this->hasUniqueTaskName($task->name())) {
             throw new Exception(sprintf('Task name (%s) is not unique!', $task->name()));
         }
@@ -13,12 +15,14 @@ class Tasks {
         $this->tasks[] = $task;
     }
     
-    public function all() {
+    public function all()
+    {
         return $this->tasks;
     }
 
-    public function hasUniqueTaskName($taskName) {
-        foreach($this->tasks as $task) {
+    public function hasUniqueTaskName($taskName)
+    {
+        foreach ($this->tasks as $task) {
             if ($task->name() === $taskName) {
                 return false;
             }
@@ -27,8 +31,9 @@ class Tasks {
         return true;
     }
     
-    public function get($taskName) {
-        foreach($this->tasks as $task) {
+    public function get($taskName)
+    {
+        foreach ($this->tasks as $task) {
             if ($task->name() === $taskName) {
                 return $task;
             }

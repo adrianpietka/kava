@@ -2,7 +2,8 @@
 
 namespace Kava;
 
-class Commands {
+class Commands
+{
     use Command\Filesystem\Manifest;
     use Command\Os\Manifest;
 }

@@ -30,14 +30,14 @@ try {
             $currentDir));
     }
 
-    $hermeticEnv = function($currentDir) {
+    $hermeticEnv = function ($currentDir) {
         include_once $currentDir . DIRECTORY_SEPARATOR . 'kava.php';
     };
 
     $hermeticEnv($currentDir);
     $runner->execute();
-} catch(Kava\Exception $e) {
+} catch (Kava\Exception $e) {
     echo $e->getMessage();
-} catch(\InvalidArgumentException $e) {
+} catch (\InvalidArgumentException $e) {
     echo 'Invalid argument: '.$e->getMessage();
 }

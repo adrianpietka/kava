@@ -2,18 +2,21 @@
 
 namespace Kava;
 
-class Task { 
+class Task
+{
     private $name;
     private $dependOn;
     private $content;
 
-    private function guard($name) {
+    private function guard($name)
+    {
         if (!is_string($name) || !trim($name)) {
             throw new \InvalidArgumentException('Task name must be a string and can\'t be empty.');
         }
     }
 
-    public function __construct($name, \Closure $content, array $dependOn = []) {
+    public function __construct($name, \Closure $content, array $dependOn = [])
+    {
         $this->guard($name);
 
         $this->name = $name;
@@ -21,15 +24,18 @@ class Task {
         $this->dependOn = $dependOn;
     }
     
-    public function name() {
+    public function name()
+    {
         return $this->name;
     }
     
-    public function dependOn() {
+    public function dependOn()
+    {
         return $this->dependOn;
     }
     
-    public function execute() {
+    public function execute()
+    {
         return call_user_func_array($this->content, []);
     }
 }

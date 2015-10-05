@@ -2,6 +2,7 @@
 
 namespace Kava\Contract;
 
-interface Command {
+interface Command
+{
     public function execute();
 }

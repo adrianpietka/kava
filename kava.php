@@ -2,7 +2,7 @@
 
 $commands = new Kava\Commands();
 
-task('build', function() use ($commands) {
+task('build', function () use ($commands) {
     $packageName = 'kava.phar';
     $srcPath = $commands->fullPath('src');
     $buildsPath = $commands->fullPath('builds');
@@ -20,7 +20,7 @@ task('build', function() use ($commands) {
     echo '> Phar file in: '.$pharPath;
 });
 
-task('tests', function() use ($commands) {
+task('tests', function () use ($commands) {
     echo $commands->exec('phpunit --configuration=tests/phpunit.xml --testdox');
 });
 
