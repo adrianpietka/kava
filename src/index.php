@@ -26,8 +26,9 @@ $runner = new Kava\Runner($tasks, $taskToExecute);
 
 try {
     if (!file_exists($currentDir . DIRECTORY_SEPARATOR . 'kava.php')) {
-        throw new Kava\Exception(sprintf("Configuration file of Kava (kava.php) does not exist in current path: \n> %s",
-            $currentDir));
+        $configurationDoesNotEmptyMessage = "Configuration file of Kava (kava.php) does not exist in current path: \n> %s";
+        
+        throw new Kava\Exception(sprintf($configurationDoesNotEmptyMessage, $currentDir));
     }
 
     $hermeticEnv = function ($currentDir) {

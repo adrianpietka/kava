@@ -8,10 +8,13 @@ function task($taskName)
     $dependencies = isset($args[1]) && is_array($args[1])
         ? $args[1]
         : [];
+    
+    $defaultContent = function () {
         
+    };
     $content = isset($args[1]) && is_callable($args[1])
         ? $args[1]
-        : (isset($args[2]) && is_callable($args[2]) ? $args[2] : function () {});
+        : (isset($args[2]) && is_callable($args[2]) ? $args[2] : $defaultContent);
     
     $task = new Kava\Task($taskName, $content, $dependencies);
     $tasks->add($task);

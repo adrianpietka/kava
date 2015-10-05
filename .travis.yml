@@ -12,7 +12,7 @@ before_script:
 
 script:
   - php builds/kava.phar build
-  - phpcs --report-full --standard=PSR2 src/ tests/
+  - phpcs --report-full --standard=PSR2 src/
   - phpunit --configuration=tests/phpunit.xml --testdox
 
 matrix:

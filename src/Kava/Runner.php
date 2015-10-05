@@ -24,15 +24,15 @@ class Runner
         $taskToExecute = $this->taskToExecute ? $this->taskToExecute : $this->defaultTask;
         $task = $this->tasks->get($taskToExecute);
         
-        $this->_execute_task($task);
+        $this->executeTask($task);
     }
     
-    protected function _execute_task($task)
+    protected function executeTask($task)
     {
         $dependencies = $task->dependOn();
         
         foreach ($dependencies as $depend) {
-            $this->_execute_task($this->tasks->get($depend));
+            $this->executeTask($this->tasks->get($depend));
         }
         
         $task->execute();

@@ -15,6 +15,8 @@ class FullPath implements CommandContract
 
     public function execute()
     {
-        return join(DIRECTORY_SEPARATOR, array(getcwd(), trim($this->addToPath, DIRECTORY_SEPARATOR))).DIRECTORY_SEPARATOR;
+        $addToPath = trim($this->addToPath, DIRECTORY_SEPARATOR);
+        
+        return join(DIRECTORY_SEPARATOR, array(getcwd(), $addToPath)).DIRECTORY_SEPARATOR;
     }
 }
