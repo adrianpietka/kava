@@ -26,7 +26,7 @@ $runner = new Kava\Runner($tasks, $taskToExecute);
 
 try {
     if (!file_exists($currentDir . DIRECTORY_SEPARATOR . 'kava.php')) {
-        $configurationDoesNotEmptyMessage = "Configuration file of Kava (kava.php) does not exist in current path: \n> %s";
+        $configurationNotExistMessage = "Configuration file of Kava (kava.php) does not exist in current path: \n> %s";
         
         throw new Kava\Exception(sprintf($configurationDoesNotEmptyMessage, $currentDir));
     }
