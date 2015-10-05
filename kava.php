@@ -20,6 +20,10 @@ task('build', function () use ($commands) {
     echo '> Phar file in: '.$pharPath;
 });
 
+task('code-fixer', function() use ($commands) {
+    echo $commands->exec('php-cs-fixer fix ./ --level=psr2');
+});
+
 task('tests', function () use ($commands) {
     echo $commands->exec('phpunit --configuration=tests/phpunit.xml --testdox');
 });
