@@ -57,10 +57,3 @@ Hello World form Kava!
 Default task (super)
 C:\Projects\myproject
 ```
-
-## Author
-
-Adrian Pietka
-
-- [http://adrian.pietka.me](http://adrian.pietka.me)
-- [adrian@pietka.me](mailto:adrian@pietka.me)
